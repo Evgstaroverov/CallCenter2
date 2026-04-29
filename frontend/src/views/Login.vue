@@ -9,7 +9,7 @@
       </form>
       <p v-if="error" class="error">{{ error }}</p>
       <p class="link">
-        Нет аккаунта? <router-link to="/register">Зарегистрироваться</router-link>
+        <router-link to="/register">Зарегистрироваться</router-link>
       </p>
     </div>
   </div>

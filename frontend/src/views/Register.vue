@@ -11,7 +11,7 @@
       </form>
       <p v-if="error" class="error">{{ error }}</p>
       <p class="link">
-        Уже есть аккаунт? <router-link to="/login">Войти</router-link>
+        <router-link to="/login">Войти</router-link>
       </p>
     </div>
   </div>
