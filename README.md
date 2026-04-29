@@ -1,5 +1,3 @@
-
-
 # CallCenter Telegram Bot Manager
 
 Веб-приложение для управления сообщениями из Telegram бота через Long Polling.
@@ -14,17 +12,17 @@
 
 ## Возможности
 
-* 📩 Получение сообщений из Telegram бота в реальном времени
-* 💬 Чат-интерфейс с разделением входящих/исходящих
-* 👤 Система "Взять в работу" — только один оператор отвечает
-* 🔐 JWT-аутентификация и регистрация
-* 🐳 Полностью Docker-контейнеризировано
+* Получение сообщений из Telegram бота в реальном времени
+* Чат-интерфейс с разделением входящих/исходящих
+* Система "Взять в работу" — только один оператор отвечает
+* JWT-аутентификация и регистрация
+* Полностью Docker-контейнеризировано
 
 ## Установка
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/YOUR\_USERNAME/callcenter-telegram.git
+git clone https://github.com/YOUR\\\_USERNAME/callcenter-telegram.git
 cd callcenter-telegram
 
 # Скопировать .env
@@ -42,4 +40,5 @@ docker-compose exec app php artisan migrate
 
 # Запустить Long Polling
 docker-compose up -d telegram
+
 
