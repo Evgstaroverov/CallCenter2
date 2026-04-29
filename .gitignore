@@ -1,0 +1,17 @@
+# Laravel
+C7/.env
+C7/storage/*
+!C7/storage/app/.gitkeep
+!C7/storage/framework/.gitkeep
+!C7/storage/logs/.gitkeep
+C7/vendor
+C7/node_modules
+
+# Frontend
+frontend/node_modules
+frontend/dist
+
+# Docker
+docker-compose.override.yml
+*.log
+.DS_Store

@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  # Сервис приложения (PHP-FPM)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www
+    networks:
+      - laravel
+
+  # Сервис веб-сервера (Nginx)
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - laravel
+
+  # Сервис базы данных (MySQL)
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - laravel
+
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ../frontend:/app
+      - /app/node_modules
+    networks:
+      - laravel
+    depends_on:
+      - web
+  
+
+  telegram:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: php artisan telegram:poll
+    restart: unless-stopped
+    volumes:
+      - .:/var/www
+    networks:
+      - laravel
+    depends_on:
+      - db
+
+
+networks:
+  laravel:
+    driver: bridge
+
+volumes:
+  dbdata:
