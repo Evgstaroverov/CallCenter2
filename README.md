@@ -22,8 +22,8 @@
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/YOUR\\\_USERNAME/callcenter-telegram.git
-cd callcenter-telegram
+git clone https://github.com/Evgstaroverov/CallCenter2.git
+cd CallCenter2
 
 # Скопировать .env
 cp C7/.env.example C7/.env
